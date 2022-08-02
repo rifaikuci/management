@@ -1,0 +1,14 @@
+<!--
+Bu sayfayı olduğu gibi print ediyor fakat burada ek olarak sayfayı
+<script>
+    window.addEventListener("load", window.print());
+</script>
+yeni bir sayfa yüklenmesine yardımcı olur
+<section>
+    <div style=" page-break-before: always;
+  top: 100%;">
+        <LABEL>asda</LABEL>
+    </div>
+</section>
+
+!-->
