@@ -20,4 +20,15 @@ function durumDanger($content)
     </div>";
 }
 
+function imageStatusAlert()
+{
+    if (isset($_GET['hata']) && $_GET['hata'] == 'image_invalid_type') {
+        durumDanger("Geçersiz Dosya Tipi !");
+    } else if (isset($_GET['hata']) && $_GET['hata'] == 'image_large') {
+        durumDanger("Dosya boyutu fazla büyük !");
+    } else if (isset($_GET['hata']) && $_GET['hata'] == 'image_not_upload') {
+        durumDanger("Resim yüklenirken bir hata oluştu !");
+    }
+}
+
 ?>

@@ -1,5 +1,8 @@
+
+
 <section class="content">
 
+    <?php imageStatusAlert();?>
     <form method="post" action="<?php echo base_url() . 'kusva/info/index.php' ?>"
           enctype="multipart/form-data">
         <div class="card card-default">
@@ -16,12 +19,6 @@
                 </div>
             </div>
             <div class="card-body" id="app">
-
-                <?php if ($_GET['durumekle'] == "ok") {
-                    durumSuccess("Kayıt Başarılı bir şekilde eklendi ");
-                } else if ($_GET['durumekle'] == "no") {
-                    durumDanger("Kayıt Eklenirken bir hata oluştu !");
-                } ?>
 
                 <div class="row">
                     <?php

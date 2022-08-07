@@ -6,3 +6,4 @@ require_once "button.php";
 require_once "date.php";
 require_once "select.php";
 require_once "textInput.php";
+require_once "sidebar.php";

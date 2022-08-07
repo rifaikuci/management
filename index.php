@@ -26,7 +26,7 @@
     <?php require_once "include/sidebar.php"?>
 
     <div class="content-wrapper">
-        <?php getBreadcrumb("Listeler", 'Görüntdfsdfdsüldeme '); ?>
+        <?php getBreadcrumb("Listeler", 'Görüntüleme '); ?>
         <?php require_once "main.php"?>
     </div>
 
