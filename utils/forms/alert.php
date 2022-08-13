@@ -20,7 +20,7 @@ function durumDanger($content)
     </div>";
 }
 
-function imageStatusAlert()
+function statusAlert()
 {
     if (isset($_GET['hata']) && $_GET['hata'] == 'image_invalid_type') {
         durumDanger("Geçersiz Dosya Tipi !");
@@ -28,6 +28,10 @@ function imageStatusAlert()
         durumDanger("Dosya boyutu fazla büyük !");
     } else if (isset($_GET['hata']) && $_GET['hata'] == 'image_not_upload') {
         durumDanger("Resim yüklenirken bir hata oluştu !");
+    } else if (isset($_GET['insert']) && $_GET['insert'] == 'ok') {
+        durumSuccess("Kayıt başarılı bir şekilde eklendi.");
+    } else if (isset($_GET['insert']) && $_GET['insert'] == 'no') {
+        durumDanger("Kayıt eklenirken bir hata oluştu.");
     }
 }
 

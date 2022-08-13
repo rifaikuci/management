@@ -1,6 +1,6 @@
 <?php
 
-function getSelect($data, $size, $label,$name, $color,$multiple, $selected,$required, $disabled)
+function getSelect($size, $data, $label,$name, $color,$multiple, $selected,$required, $disabled)
 {
     $size = $size ? $size : 4;
     $color = $color ? $color : "blue";

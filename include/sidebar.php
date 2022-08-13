@@ -8,29 +8,10 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
 
-                <li class="nav-item">
-                   <?php menuTreeTitle("Title", "fas fa-tachometer-alt text-danger"); ?>
-                    <ul class="nav nav-treeview">
-                        <?php menuTreeSubTitle("Alt Title 1",
-                            "far fa-circle nav-icon",
-                            "https://rifaikuci.com/",
-                            "", "",true ); ?>
-                    </ul>
-                </li>
-
-                <?php menuTreeSubTitle("Alt Title 1",
-                    "far fa-circle nav-icon",
-                    "https://rifaikuci.com/",
-                    "", badge("6","success"),false ); ?>
-                <?php menuTreeSubTitle("Alt Title 1",
-                    "far fa-circle nav-icon",
-                    "https://rifaikuci.com/",
-                    "", badge("6","success"),true ); ?>
-                <?php menuTreeSubTitle("Alt Title 1",
-                    "far fa-circle nav-icon",
-                    "https://rifaikuci.com/",
-                    "", badge("6","success"),false ); ?>
-                <?php  menuTitle("LABEL", "danger"); ?>
+                <?php menuTreeSubTitle("Ayarlar",
+                    "far fas fa-cog nav-icon",
+                    "src/settings",
+                    "", ""); ?>
             </ul>
         </nav>
     </div>

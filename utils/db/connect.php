@@ -8,5 +8,4 @@ try {
     echo $exception;
 }
 
-
 ?>

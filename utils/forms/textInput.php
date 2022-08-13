@@ -74,7 +74,7 @@ function getTextHidden($name, $value)
     echo '<input type="hidden" name="' . $name . '" value="' . $value . '"/>';
 }
 
-function getInputFile($name, $label, $size, $required, $disabled)
+function getInputFile($size, $name, $label, $required, $disabled)
 {
     $size = $size ? $size : 4;
     $label = $label ? $label : "label";

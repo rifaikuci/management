@@ -1,8 +1,20 @@
 <?php
 
 
-function imageUpload($path, $folderName, $name, $fileName)
+function imageUpload( $folderName, $name, $fileName)
 {
+    $path = "assets/images";
+    if(file_exists("assets/images")) {
+        $path = "assets/images/";
+    } else if(file_exists("../assets/images")){
+        $path = "../assets/images/";
+    } else if(file_exists("../../assets/images")){
+        $path = "../../assets/images/";
+    } else if(file_exists("../../../assets/images")){
+        $path = "../../../assets/images/";
+    }
+
+
     if (!file_exists($path . $folderName)) {
         mkdir($path . $folderName, 0777, true);
     }
@@ -13,10 +25,10 @@ function imageUpload($path, $folderName, $name, $fileName)
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     if ($fileName) {
-        $target_file = image_base_url() . $folderName . "/" . $fileName . "." . $imageFileType;
+        $target_file = imageBaseUrl() . $folderName . "/" . $fileName . "." . $imageFileType;
     } else {
         $uniq = uniqid();
-        $target_file = image_base_url() . $folderName . "/" . $uniq. "." . $imageFileType;
+        $target_file = imageBaseUrl() . $folderName . "/" . $uniq. "." . $imageFileType;
     }
 
     if ($_FILES[$name]["size"] > 5000000) { // 5 mb
@@ -33,14 +45,31 @@ function imageUpload($path, $folderName, $name, $fileName)
     if ($uploadOk == 0) {
         return "image_not_upload";
     } else {
-        if (move_uploaded_file($_FILES[$name]["tmp_name"], "../../" . $target_file)) {
+        if (move_uploaded_file($_FILES[$name]["tmp_name"], "../" . $target_file)) {
             if ($fileName) {
-                return image_base_url() . $folderName . "/" . $fileName . "." . $imageFileType;
+                return imageBaseUrl() . $folderName . "/" . $fileName . "." . $imageFileType;
             } else {
-                return image_base_url() . $folderName . "/" . $uniq . "." . $imageFileType;
+                return imageBaseUrl() . $folderName . "/" . $uniq . "." . $imageFileType;
             }
         } else {
             return "image_not_upload";
         }
     }
 }
+
+function findPath($content) {
+    $folder =  preg_split('/(?=[A-Z])/',$content)[0];
+    if(file_exists("src")){
+        return "src/".$folder;
+    }  else if(file_exists("../src")){
+        return "../src/".$folder;
+    } else if(file_exists("../../src")) {
+        return "../../src/".$folder;
+    } else if (file_exists("../../../src")) {
+        return "../../../src/".$folder;
+    } else if (file_exists("../../../../src")) {
+        return "../../../../src/".$folder;
+    } else return "";
+}
+
+?>

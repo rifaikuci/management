@@ -14,14 +14,14 @@ function menuTreeTitle($title, $classIcon)
             </a>';
 }
 
-function menuTreeSubTitle($title, $classIcon, $link, $target,$badge, $active)
+function menuTreeSubTitle($title, $classIcon, $link, $target,$badge)
 {
     $title = $title ? $title : "Alt Title 1";
     $classIcon = $classIcon ? $classIcon : "fas fa-tachometer-alt";
-    $link = $link ? $link : "#";
     $target = $target ? $target : "_parent";
     $badge = $badge ? $badge : "";
-    $active = $active == true ? "active" : "";
+    $active = $link ?  isUrlActive($link) > 0 ? "active" : "" : "";
+    $link = $link ? base_url().$link : base_url()."#";
 
     echo '<li class="nav-item">
             <a href="' . $link . '" class="nav-link '.$active.'" target="' . $target . '">
