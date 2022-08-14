@@ -46,7 +46,6 @@ function badge($title, $type)
     $title = $title ? $title : "";
     $type = $type ? $type : "danger";
 
-
     return '<span class="right badge badge-'.$type.'">'.$title.'</span>';
 }
 

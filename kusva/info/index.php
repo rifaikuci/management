@@ -5,7 +5,7 @@ if (isset($_POST['infoekleme'])) {
     $data = array();
 
     if (isset($_FILES['file']) && $_FILES['file']['name']) {
-        $file = imageUpload( "infos", 'file', '');
+        $file = imageUpload("infos", 'file', '');
         if ($file == "image_large" || $file == "image_invalid_type" || $file == "image_not_upload") {
             header("Location:../../index.php?hata=" . $file);
         }

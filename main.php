@@ -26,7 +26,7 @@
                     getDatetime(3, "Doğum Tarihiniz", "birthdate", "", true, false);
                     getNumberInput(3, "Yaş", 0, "age", "", "", "", "", false, false);
 
-                    getInputFile("file","Resim", 4,false,false);
+                    getInputFile("file","Resim", 4,false,false, false);
                     ?>
 
                 </div>

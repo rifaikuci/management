@@ -20,6 +20,32 @@ function insert($data, $table)
 
 }
 
+function update($data, $table, $id) {
+
+    $sql  =  "UPDATE $table set ";
+    foreach ($data as $key => $value) {
+        if ($value) {
+            $sql = $sql. "$key = '$value',"  ;
+        }
+    }
+    $sql = rtrim($sql,",");
+    $sql = $sql . " WHERE id = ". $id;
+    return $sql;
+
+}
+
+function delete($id, $table) {
+    $sql = "DELETE FROM $table where id = '$id'";
+    return $sql;
+}
+
+function getDataRow ($id, $table, $db) {
+    $sql = "SELECT * FROM $table where id = '$id'";
+    $result = mysqli_query($db, $sql)->fetch_assoc();
+
+    return $result;
+
+}
 function getTableColumns($table, $db)
 {
     $sql = "SHOW COLUMNS FROM $table";

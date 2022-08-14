@@ -1,13 +1,12 @@
 <?php
 
-function getTextInput($size, $label, $placeholder, $name, $value, $inputChange, $required, $disabled)
+function getTextInput($size, $label, $placeholder, $name, $value, $required, $disabled)
 {
     $size = $size ? $size : 12;
     $label = $label ? $label : "label";
     $placeholder = $placeholder ? $placeholder : "placeholder";
     $name = $name ? $name : "name";
     $value = $value ? $value : "";
-    $inputChange = $inputChange ? $inputChange : "";
     $required = $required ? true : false;
     $disabled = $disabled ? true : false;
 
@@ -21,8 +20,6 @@ function getTextInput($size, $label, $placeholder, $name, $value, $inputChange, 
     $first = $first . $required;
     $first = $first . $disabled;
     $last = 'type="text" 
-    v-model="' . $name . '"
-                            @input="' . $inputChange . '"
                             class="form-control form-control-md" 
                             value = "' . $value . '"    
                             name = "' . $name . '"    
@@ -74,7 +71,7 @@ function getTextHidden($name, $value)
     echo '<input type="hidden" name="' . $name . '" value="' . $value . '"/>';
 }
 
-function getInputFile($size, $name, $label, $required, $disabled)
+function getInputFile($size, $name, $label, $isLabelAlso,$required, $disabled)
 {
     $size = $size ? $size : 4;
     $label = $label ? $label : "label";
@@ -84,9 +81,13 @@ function getInputFile($size, $name, $label, $required, $disabled)
 
 
     $first = '<div class="col-sm-' . $size . '">
-                    <div class="form-group">
-                  
-                        <label>' . $label . '</label>
+                    <div class="form-group">';
+    if ($isLabelAlso) {
+        $first = $first . '<label style="color: #0c84ff; font-weight: 500">Resmi güncellemek için Resim seçiniz</label> <br>';
+    }
+
+
+    $first = $first . '<label>' . $label . ' </label>
                         <div>
                             <input ';
     $required = $required ? " required " : "";
@@ -101,6 +102,44 @@ function getInputFile($size, $name, $label, $required, $disabled)
     echo $first . $last;
 
 
+}
+
+function getViewFile($size, $title, $path)
+{
+    $size = $size ? $size : 3;
+    $title = $title ? $title : 3;
+
+    $path = $path ? base_url() . $path : "#";
+    echo '<div class="col-sm-' . $size . '">
+                        <a href="' . $path . '" data-toggle="lightbox" data-title="' . $title . '" data-gallery="gallery">
+                            <img src="' . $path . '" class="img-fluid mb-' . $size . '" alt="' . $title . '"/>
+                        </a>
+                    </div>';
+}
+
+function getTextArea($size, $name, $title, $placeHolder, $rows, $value, $required,$disabled)
+{
+    $size = $size ? $size : 12;
+    $title = $title ? $title : 3;
+    $placeHolder = $placeHolder ? $placeHolder : "Giriş Yapın";
+    $rows = $rows ? $rows : 3;
+    $value = $value ? $value : "";
+    $name = $name ? $name : "";
+
+
+    $first = '<div class="col-sm-' . $size . '"><div>
+    <label>' . $title . '</label>
+    <textarea ';
+
+    $required = $required ? " required " : "";
+    $disabled = $disabled ? " disabled " : "";
+    $first = $first . $required;
+    $first = $first . $disabled;
+
+    $first = $first . ' name="' . $name . '" class="form-control" rows="' . $rows . '" placeholder="' . $placeHolder . '">' . $value . '</textarea>
+    </div></div>';
+
+    echo $first;
 }
 
 ?>

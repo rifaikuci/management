@@ -1,23 +1,24 @@
 <?php
 
-if (isset($_POST['settingsInsert'])) {
+if (isset($_POST['projectInsert'])) {
 
     $dirName = basename(__DIR__);
     $path = base_url() . "src/" . $dirName;
     $data = array();
-    if (isset($_FILES['file']) && $_FILES['file']['name']) {
-        $file = imageUpload("settings", 'file', '');
+    if (isset($_FILES['image']) && $_FILES['image']['name']) {
+        $file = imageUpload("project", 'image', '');
         if ($file == "image_large" || $file == "image_invalid_type" || $file == "image_not_upload") {
             header("Location:" . $path . "/index.php?hata=" . $file);
+            exit();
         }
     }
 
-    $arrayKey = ["name", "surname", "address", "city", "gender", "birthdate", "age", "description"];
+    $arrayKey = ["title", "content", "description", "keywords", "noticeDate"];
     $data = getDataForm($arrayKey);
 
-    if (isset($_FILES['file']) && $_FILES['file']['name']) $data['image'] = $file;
+    if (isset($_FILES['image']) && $_FILES['image']['name']) $data['image'] = $file;
 
-    $sql = insert($data, "tblSettings");
+    $sql = insert($data, "tblProject");
     if (mysqli_query($db, $sql)) {
         header("Location:" . $path . "/?insert=ok");
         exit();
@@ -27,17 +28,18 @@ if (isset($_POST['settingsInsert'])) {
     }
 }
 
-if (isset($_POST['settingsUpdate'])) {
+if (isset($_POST['projectUpdate'])) {
 
-    $id = $_POST['settingsUpdate'];
+    $id = $_POST['projectUpdate'];
     $dirName = basename(__DIR__);
     $path = base_url() . "src/" . $dirName;
     $data = array();
 
-    if (isset($_FILES['file']) && $_FILES['file']['name']) {
-        $file = imageUpload("settings", 'file', '');
+    if (isset($_FILES['image']) && $_FILES['image']['name']) {
+        $file = imageUpload("project", 'image', '');
         if ($file == "image_large" || $file == "image_invalid_type" || $file == "image_not_upload") {
             header("Location:" . $path . "/index.php?hata=" . $file);
+            exit();
         }
 
         if (isset($_POST['deleteFile']) && $_POST['deleteFile']) {
@@ -48,12 +50,12 @@ if (isset($_POST['settingsUpdate'])) {
     }
 
 
-    $arrayKey = ["name", "surname", "address", "city", "gender", "birthdate", "age", "description"];
+    $arrayKey = ["title", "content", "description", "keywords", "noticeDate"];
     $data = getDataForm($arrayKey);
 
-    if (isset($_FILES['file']) && $_FILES['file']['name']) $data['image'] = $file;
+    if (isset($_FILES['image']) && $_FILES['image']['name']) $data['image'] = $file;
 
-    $sql = update($data, "tblSettings", $id);
+    $sql = update($data, "tblProject", $id);
     if (mysqli_query($db, $sql)) {
         header("Location:" . $path . "/?update=ok");
         exit();
@@ -63,10 +65,10 @@ if (isset($_POST['settingsUpdate'])) {
     }
 }
 
-if (isset($_GET['settingsDelete'])) {
-    $id = $_GET['settingsDelete'];
-    $row = getDataRow("$id", "tblSettings", $db);
-    $sql = delete($id, 'tblSettings');
+if (isset($_GET['projectDelete'])) {
+    $id = $_GET['projectDelete'];
+    $row = getDataRow("$id", "tblProject", $db);
+    $sql = delete($id, 'tblProject');
     $dirName = basename(__DIR__);
     $path = base_url() . "src/" . $dirName;
 

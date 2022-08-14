@@ -32,6 +32,14 @@ function statusAlert()
         durumSuccess("Kayıt başarılı bir şekilde eklendi.");
     } else if (isset($_GET['insert']) && $_GET['insert'] == 'no') {
         durumDanger("Kayıt eklenirken bir hata oluştu.");
+    } else if (isset($_GET['delete']) && $_GET['delete'] == 'ok') {
+        durumSuccess( "Kayıt başarılı bir şekilde silindi.");
+    } else if (isset($_GET['delete']) && $_GET['delete'] == 'no') {
+        durumDanger("Kaydı Silerken bir hata oluştu!");
+    } else if (isset($_GET['update']) && $_GET['update'] == 'ok') {
+        durumSuccess( "Kayıt başarılı bir şekilde Güncellendi.");
+    } else if (isset($_GET['update']) && $_GET['update'] == 'no') {
+        durumDanger("Kaydı Güncellerken bir hata oluştu!");
     }
 }
 

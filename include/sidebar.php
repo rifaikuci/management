@@ -2,7 +2,7 @@
 
     <div class="sidebar">
 
-        <?php require_once "sidebar-top.php"?>
+        <?php require_once "sidebar-top.php" ?>
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -11,6 +11,11 @@
                 <?php menuTreeSubTitle("Ayarlar",
                     "far fas fa-cog nav-icon",
                     "src/settings",
+                    "", ""); ?>
+
+                <?php menuTreeSubTitle("Project",
+                    "far fas fa-list nav-icon",
+                    "src/project",
                     "", ""); ?>
             </ul>
         </nav>
