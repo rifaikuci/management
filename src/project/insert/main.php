@@ -15,11 +15,10 @@
                     getTextInput(6,"Proje Adı","Proje adı...","title","",true,false);
                     getTextInput(6,"Keywords","Anahtar Kelimeler...","keywords","",false,false);
                     getTextArea(12,"content", "İçerik", "içerik giriniz",3,"",true,false);
-                    getTextArea(12,"description", "Açıklama Girinizz", "Description giriniz",3,"",true,false);
+                    getCKEditor(5,"description","Title","Placehodler","",false,false);
                     getDatetime(3,"Paylaşım Zamanı","noticeDate","",false,true);
                     getInputFile(3,"image","Proje Resmi",false, false,false);
                     getTextHidden("projectInsert","projectInsert");
-
                     ?>
                 </div>
 

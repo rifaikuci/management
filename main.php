@@ -27,6 +27,10 @@
                     getNumberInput(3, "Yaş", 0, "age", "", "", "", "", false, false);
 
                     getInputFile("file","Resim", 4,false,false, false);
+
+                    getCKEditor(5,"name","Title","Placehodler","",false,false);
+                    getCKEditor(5,"name","Title","Placehodler","",false,false);
+
                     ?>
 
                 </div>

@@ -24,7 +24,7 @@ if(isset($_GET['id'])) {
                     getTextInput(6, "Proje Adı", "Proje adı...", "title", $row['title'], false, true);
                     getTextInput(6, "Keywords", "Anahtar Kelimeler...", "keywords", $row['keywords'], false, true);
                     getTextArea(12, "content", "İçerik", "içerik giriniz", 3, $row['content'], false, true);
-                    getTextArea(12, "description", "Açıklama Girinizz", "Description giriniz", 3, $row['description'], true, false);
+                    getCKEditor(5,"description","Title","Placehodler",$row['description'],false,true);
                     getDatetime(3, "Paylaşım Zamanı", "noticeDate", $row['noticeDate'], false, false);
                     getViewFile(3, "Resim", $row['image']);
                     ?>

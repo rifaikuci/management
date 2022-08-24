@@ -71,7 +71,7 @@ function getTextHidden($name, $value)
     echo '<input type="hidden" name="' . $name . '" value="' . $value . '"/>';
 }
 
-function getInputFile($size, $name, $label, $isLabelAlso,$required, $disabled)
+function getInputFile($size, $name, $label, $isLabelAlso, $required, $disabled)
 {
     $size = $size ? $size : 4;
     $label = $label ? $label : "label";
@@ -117,10 +117,10 @@ function getViewFile($size, $title, $path)
                     </div>';
 }
 
-function getTextArea($size, $name, $title, $placeHolder, $rows, $value, $required,$disabled)
+function getTextArea($size, $name, $title, $placeHolder, $rows, $value, $required, $disabled)
 {
     $size = $size ? $size : 12;
-    $title = $title ? $title : 3;
+    $title = $title ? $title : "";
     $placeHolder = $placeHolder ? $placeHolder : "Giriş Yapın";
     $rows = $rows ? $rows : 3;
     $value = $value ? $value : "";
@@ -137,6 +137,30 @@ function getTextArea($size, $name, $title, $placeHolder, $rows, $value, $require
     $first = $first . $disabled;
 
     $first = $first . ' name="' . $name . '" class="form-control" rows="' . $rows . '" placeholder="' . $placeHolder . '">' . $value . '</textarea>
+    </div></div>';
+
+    echo $first;
+}
+
+function getCKEditor($size, $name, $title, $placeHolder, $value, $required, $disabled)
+{
+    $size = $size ? $size : 12;
+    $title = $title ? $title : "";
+    $placeHolder = $placeHolder ? $placeHolder : "Giriş Yapın";
+    $value = $value ? $value : "";
+    $name = $name ? $name : "";
+
+
+    $first = '<div class="col-sm-' . $size . '"><div>
+    <label>' . $title . '</label>
+    <textarea class="summernote"';
+
+    $required = $required ? " required " : "";
+    $disabled = $disabled ? " disabled " : "";
+    $first = $first . $required;
+    $first = $first . $disabled;
+
+    $first = $first . ' name="' . $name . '" class="form-control" placeholder="' . $placeHolder . '">' . $value . '</textarea>
     </div></div>';
 
     echo $first;
