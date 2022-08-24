@@ -18,11 +18,14 @@ if (isset($_POST['projectInsert'])) {
 
     if (isset($_FILES['image']) && $_FILES['image']['name']) $data['image'] = $file;
 
-    $sql = insert($data, "tblProject");
+    $sql = insert($data, "tblProsssject");
     if (mysqli_query($db, $sql)) {
         header("Location:" . $path . "/?insert=ok");
         exit();
     } else {
+        if (file_exists("../" . $file)) {
+            unlink("../" . $file);
+        }
         header("Location:" . $path . "/?insert=no");
         exit();
     }
