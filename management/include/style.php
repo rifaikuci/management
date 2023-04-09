@@ -20,4 +20,5 @@ if (!isset($_SESSION['management'])) {
 <link rel="stylesheet" href="<?php echo base_url_back() . "style/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" ?>">
 <link rel="stylesheet" href="<?php echo base_url_back() . "style/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" ?>">
 <link rel="stylesheet" href="<?php echo base_url_back() . "style/dist/css/adminlte.min.css?v=3.2.0" ?>">
-
+<link rel="stylesheet" href="<?php echo base_url_back() . "style/plugins/dropzone/min/dropzone.min.css" ?>">
+                            "
