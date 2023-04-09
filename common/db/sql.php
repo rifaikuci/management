@@ -7,13 +7,13 @@ function insert($data, $table)
     $values = "";
 
     foreach ($data as $key => $value) {
-            $keys = $keys . $key . ", ";
-            if($value != '') {
-                $value = str_replace("'","`",$value);
-                $values = $values . "'$value'" . ", ";
-            }else {
-                $values = $values . 'NULL' . ", ";
-            }
+        $keys = $keys . $key . ", ";
+        if($value != '') {
+            $value = str_replace("'","`",$value);
+            $values = $values . "'$value'" . ", ";
+        }else {
+            $values = $values . 'NULL' . ", ";
+        }
     }
     $keys = rtrim($keys, " ,");
     $values = rtrim($values, " ,");
@@ -29,9 +29,9 @@ function update($data, $table, $id) {
     $sira = 0;
     foreach ($data as $key => $value) {
 
-            $sira++;
-            $value = str_replace("'","`",$value);
-            $sql = $sql. "$key = '$value',"  ;
+        $sira++;
+        $value = str_replace("'","`",$value);
+        $sql = $sql. "$key = '$value',"  ;
     }
     $sql = rtrim($sql,",");
     $sql = $sql . " WHERE id = ". $id;
@@ -54,8 +54,8 @@ function getDataRow ($id, $table, $db) {
     $result = mysqli_query($db, $sql)->fetch_assoc();
 
     return $result;
-
 }
+
 function getTableColumns($table, $db)
 {
     $sql = "SHOW COLUMNS FROM $table";
@@ -97,4 +97,18 @@ function getAllData($table, $limit, $db)
     return $data;
 }
 
+
+
+
+function getCount($table, $db)
+{
+    $sql = "SELECT * from $table";
+
+    if ($result = mysqli_query($db, $sql)) {
+
+        $rowcount = mysqli_num_rows( $result );
+
+        return $rowcount;
+    }
+}
 ?>

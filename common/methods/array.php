@@ -23,4 +23,26 @@ function getDataFilter($array, $objectName, $searchValue)
     return $data;
 }
 
+function getFilter($array, $searchValue)
+{
+    $data = array();
+    for ($i = 0; $i < count($array); $i++) {
+        if ($array[$i] == $searchValue) {
+            array_push($data, $array[$i]);
+        }
+    }
+    return $data;
+}
+
+function getNotFilter($array, $searchValue)
+{
+    $data = array();
+    for ($i = 0; $i < count($array); $i++) {
+        if ($array[$i] != $searchValue) {
+            array_push($data, $array[$i]);
+        }
+    }
+    return $data;
+}
+
 ?>
